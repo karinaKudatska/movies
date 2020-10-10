@@ -6,7 +6,11 @@ import './Pagination.scss';
 const BasicPagination = ({ pagesCount, nextPage }) => {
   return (
     <div className="pagination">
-      <Pagination count={pagesCount} onClick={(event) => nextPage(event.target.innerText)} />
+      <Pagination 
+        color="secondary"
+        count={pagesCount} 
+        onClick={(event) => nextPage(event.target.innerText)} 
+      />
     </div>
   );
 }
