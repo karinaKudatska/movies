@@ -13,9 +13,9 @@ const Movies = ({ movies, showPopup }) => {
     return(
         <>
         {movies && (
-            <Grid container spacing={5}>
+            <Grid container spacing={5} className="movies">
                 {movies.map(movie => (
-                    <Grid key={movie.id} item xs={3}>
+                    <Grid key={movie.id} item md={3} sm={6} xs={8}>
                     <Card className="movie" onClick={() => showPopup(movie.id)}>
                         <CardActionArea>
                         <CardMedia
