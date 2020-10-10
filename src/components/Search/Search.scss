@@ -1,6 +1,11 @@
 .search {
     &__input {
         height: 50px;
-        padding: 10px;
+        width: 200px;
     }
+}
+
+.MuiInputBase-input.MuiInput-input{
+    color: white;
+    text-align: center;
 }

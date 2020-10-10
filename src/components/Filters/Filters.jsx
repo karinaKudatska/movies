@@ -10,7 +10,7 @@ const Filters = ({ chooseFilter, filter }) => {
 
   return (
     <div className="filters">
-      <FormControl className="filters__form">
+      <FormControl className="filters__form" color="secondary">
         <InputLabel id="demo-simple-select-label">Categories</InputLabel>
         <Select
           labelId="demo-simple-select-label"

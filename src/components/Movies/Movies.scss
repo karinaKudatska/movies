@@ -3,8 +3,13 @@
   padding: 20px;
 }
 
-.movie__image {
-  height: 450px;
+.movie {
+  border-bottom: 3px solid #d11b59;
+
+  &__image {
+    height: 450px;
+    overflow: hidden;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -16,6 +21,6 @@
 
 @media screen and (max-width: 480px) {
   .movie__image {
-    height: 200px;
+    height: 250px;
   }
 }

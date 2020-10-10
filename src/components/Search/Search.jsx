@@ -7,17 +7,18 @@ const Search = ({ handleSubmit, handleChange, query }) => {
 
   return (
     <form 
-        className="search" 
-        noValidate 
-        autoComplete="off"
-        onSubmit={handleSubmit}
+      className="search" 
+      noValidate 
+      autoComplete="off"
+      onSubmit={handleSubmit}
     >
-        <Input 
-            className="search__input"
-            placeholder="Enter a movie title!" 
-            onChange={handleChange}
-            value={query}
-        />
+      <Input 
+        className="search__input"
+        placeholder="Enter a movie title!" 
+        onChange={handleChange}
+        value={query}
+        color="secondary"
+      />
     </form>
   );
 }

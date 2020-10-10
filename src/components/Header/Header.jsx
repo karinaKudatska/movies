@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <AppBar position="static">
+      <AppBar position="static" color="secondary">
         <Toolbar>
           <Typography className="header__text" variant="h6" noWrap>
             Find your favorite movies!

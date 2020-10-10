@@ -1,6 +1,12 @@
 .filters {
     &__form {
-        width: 150px;
-        padding: 10px;
+        width: 200px;
+        height: 50px;
+        text-align: center;
     }
+}
+
+#demo-simple-select-label {
+    color: white;
+    text-align: center;
 }
