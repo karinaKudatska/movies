@@ -38,8 +38,8 @@ function App() {
       })
   }
 
-  const filterMovies= (filter) => {
-      fetch(`${BASE_URL}/discover/movie?${filter}${API_KEY}`)
+  const filterMovies= (filterUrl) => {
+      fetch(`${BASE_URL}/discover/movie?${filterUrl}${API_KEY}`)
         .then(response => response.json())
         .then(data => setMovies(data.results));
   }
@@ -51,12 +51,24 @@ function App() {
   };
 
   useEffect(() => {
+    if(localStorage.getItem("query")) {
+      setQuery(JSON.parse(localStorage.getItem("query")))
+      setMovies(findMovies(JSON.parse(localStorage.getItem("query"))))
+    } else if (localStorage.getItem("filter")) {
+      setFilter(JSON.parse(localStorage.getItem("filter")));
+      setMovies(filterMovies(JSON.parse(localStorage.getItem("filter"))))
+    }
+  }, [])
+
+  useEffect(() => {
     findMovies(query, page);
   }, [page]);
 
   useEffect(() => {
     filterMovies(filterUrl);
-}, [filter]);
+    localStorage.setItem("filter", JSON.stringify(filter));
+    localStorage.removeItem("query");
+}, [filterUrl]);
 
   const nextPage = (page) => {
     setPage(page);
@@ -65,6 +77,8 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     findMovies(query, page);
+    localStorage.setItem("query", JSON.stringify(query));
+    localStorage.removeItem("filter");
   }
 
   const handleChange = (event) => {
