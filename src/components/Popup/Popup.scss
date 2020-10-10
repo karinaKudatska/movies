@@ -34,3 +34,12 @@
         }
     }
 }
+
+@media screen and (max-width: 720px) {
+    .popup {
+        &__content {
+            width: 100%;
+            height: 100vh;
+        }
+    }
+}

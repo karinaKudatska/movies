@@ -12,11 +12,11 @@ function App() {
   const [movies, setMovies] = useState(null);
   const [moviesCount, setMoviesCount] = useState(0);
   const [page, setPage] = useState(1);
+  const pagesCount = Math.floor(moviesCount / 20);
   const [popup, setPopup] = useState(false);
   const [checkedMovie, setCheckedMovie] = useState(null);
   const [filter, setFilter] = useState('');
   const [filterUrl, setFilterUrl] = useState('');
-  const pagesCount = Math.floor(moviesCount / 20);
 
   const filters = {
     popular: `sort_by=popularity.desc`,
@@ -60,7 +60,6 @@ function App() {
 
   const nextPage = (page) => {
     setPage(page);
-    window.scrollTo(0, 0);
   }
 
   const handleSubmit = (event) => {
@@ -102,6 +101,7 @@ function App() {
       />
       {moviesCount > 20 && (
         <BasicPagination
+          page={page}
           pagesCount={pagesCount}
           nextPage={nextPage}
         />
