@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Movies.scss';
 import defaultImage from '../../images/default-image.png';
 import Grid from '@material-ui/core/Grid';
@@ -37,6 +38,13 @@ const Movies = ({ movies, showPopup }) => {
             )}
         </>
     )
+}
+
+Movies.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.object.isRequired,
+    ),
+    showPopup: PropTypes.func.isRequired,
 }
 
 export default Movies;

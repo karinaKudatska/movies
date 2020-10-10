@@ -4,13 +4,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-export default function SearchAppBar() {
+const Header = () => {
 
   return (
-    <div className='header'>
+    <div className="header">
       <AppBar position="static">
         <Toolbar>
-          <Typography className='header__text' variant="h6" noWrap>
+          <Typography className="header__text" variant="h6" noWrap>
             Find your favorite movies!
           </Typography>
         </Toolbar>
@@ -18,3 +18,5 @@ export default function SearchAppBar() {
     </div>
   );
 }
+
+export default Header;

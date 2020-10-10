@@ -1,18 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Search.scss';
 import Input from '@material-ui/core/Input';
 
-export default function Inputs({ handleSubmit, handleChange, query }) {
+const Search = ({ handleSubmit, handleChange, query }) => {
 
   return (
     <form 
-        className='search' 
+        className="search" 
         noValidate 
         autoComplete="off"
         onSubmit={handleSubmit}
     >
         <Input 
-            className='search__input'
+            className="search__input"
             placeholder="Enter a movie title!" 
             onChange={handleChange}
             value={query}
@@ -20,3 +21,11 @@ export default function Inputs({ handleSubmit, handleChange, query }) {
     </form>
   );
 }
+
+Search.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  query: PropTypes.string.isRequired
+}
+
+export default Search;

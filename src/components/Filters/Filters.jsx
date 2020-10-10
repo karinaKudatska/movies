@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Filters.scss';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-export default function Filters({ chooseFilter, filter }) {
+const Filters = ({ chooseFilter, filter }) => {
 
   return (
-    <div className='filters'>
-      <FormControl className='filters__form'>
+    <div className="filters">
+      <FormControl className="filters__form">
         <InputLabel id="demo-simple-select-label">Categories</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -27,3 +28,10 @@ export default function Filters({ chooseFilter, filter }) {
     </div>
   );
 }
+
+Filters.propTypes = {
+  chooseFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+}
+
+export default Filters;

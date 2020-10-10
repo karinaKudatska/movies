@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Popup.scss';
 import defaultImage from '../../images/default-image.png';
 import Card from '@material-ui/core/Card';
@@ -12,13 +13,13 @@ const Popup = ({ checkedMovie, hidePopup }) => {
       <div className="popup">
           <Card className="popup__content">
           <CancelIcon 
-            className='popup__close'
+            className="popup__close"
             onClick={hidePopup}
           />
             <h2>{checkedMovie.title}</h2>
-            <p>{checkedMovie.release_date}</p>
+            <p>{checkedMovie.release_date ? checkedMovie.release_date : 'Unknown date'}</p>
             <CardMedia
-                className='popup__image'
+                className="popup__image"
                 image={checkedMovie.poster_path ? 
                   `https://image.tmdb.org/t/p/original${checkedMovie.poster_path}` :
                   defaultImage
@@ -27,12 +28,22 @@ const Popup = ({ checkedMovie, hidePopup }) => {
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                {checkedMovie.overview}
+                {checkedMovie.overview ? checkedMovie.overview : 'No description'}
                 </Typography>
             </CardContent>
           </Card>
       </div>
   );
+}
+
+Popup.propTypes = {
+  checkedMovie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  }),
+  hidePopup: PropTypes.func.isRequired
 }
 
 export default Popup;

@@ -60,6 +60,7 @@ function App() {
 
   const nextPage = (page) => {
     setPage(page);
+    window.scrollTo(0, 0);
   }
 
   const handleSubmit = (event) => {
